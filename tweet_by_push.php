@@ -14,6 +14,9 @@ if (!isset($_POST['checkin'])) {
 
 $checkin = json_decode($_POST['checkin'], true);
 $text = createTweetText($checkin['id'], $_ENV['FOURSQUARE_ACCESS_TOKEN']);
+if ($text === '') {
+    exit;
+}
 
 $result = tweet($text, $_ENV['TWITTER_ACCESS_TOKEN'], $_ENV['TWITTER_ACCESS_TOKEN_SECRET']);
 logging($result);

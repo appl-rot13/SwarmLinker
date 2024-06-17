@@ -38,6 +38,11 @@ function createTweetText(string $checkinId, string $accessToken): string
     $array = getCheckinDetails($checkinId, $accessToken);
     $checkin = $array['response']['checkin'];
 
+    // Please comment out if you want to posts all check-ins.
+    if (!isset($checkin['shares']['twitter']) || !$checkin['shares']['twitter']) {
+        return '';
+    }
+
     $venue = $checkin['venue'];
     $venueName = $venue['name'];
     $venueAddress = $venue['location']['city'] . ', ' . $venue['location']['state'];
