@@ -117,3 +117,7 @@ FOURSQUARE_ACCESS_TOKEN=""
 ## ライセンス
 
 このソフトウェアは[Unlicense](LICENSE)に基づいてライセンスされています。
+
+## 関連項目
+
+- https://appl-rot13.hatenablog.jp/entry/2024/07/02/000417
