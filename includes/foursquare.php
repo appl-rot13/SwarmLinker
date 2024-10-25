@@ -33,6 +33,17 @@ function getCheckinDetails(string $checkinId, string $accessToken): array
     return json_decode($response, true);
 }
 
+function getVenueAddress(array $formattedAddress): string
+{
+    $venueAddress = array_pop($formattedAddress);
+
+    if (isZipCode($venueAddress)) {
+        $venueAddress = array_pop($formattedAddress);
+    }
+
+    return $venueAddress;
+}
+
 function createTweetText(string $checkinId, string $accessToken): string
 {
     $array = getCheckinDetails($checkinId, $accessToken);
@@ -45,7 +56,7 @@ function createTweetText(string $checkinId, string $accessToken): string
 
     $venue = $checkin['venue'];
     $venueName = $venue['name'];
-    $venueAddress = $venue['location']['city'] . ', ' . $venue['location']['state'];
+    $venueAddress = getVenueAddress($venue['location']['formattedAddress']);
 
     $shareUrl = $checkin['checkinShortUrl'];
 

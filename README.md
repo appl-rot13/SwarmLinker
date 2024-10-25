@@ -10,7 +10,7 @@ At check-in on Swarm, receives a webhook and then posts to X/Twitter.
 The posted text will be as follows. Note that attached comments and images will not be included in the post.
 
 ```
-I'm at [Venue name] in [City], [State]
+I'm at [Venue name] in [Venue address]
 [Share URL]
 ```
 

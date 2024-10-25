@@ -17,6 +17,11 @@ function redirect(string $url): void
     exit;
 }
 
+function isZipCode(string $str): bool
+{
+    return preg_match('/^\d{3}-\d{4}$/', $str);
+}
+
 function logging(mixed $value): void
 {
     $message = date('Y/m/d H:i:s') . "\n" . print_r($value, true) . "\n";
